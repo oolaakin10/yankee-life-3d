@@ -1,0 +1,13 @@
+{
+  "name": "yankee-life-multiplayer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Minimal two-player WebSocket relay for the Yankee Life prototype",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}
