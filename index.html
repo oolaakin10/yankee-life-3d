@@ -5,198 +5,141 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>YANKEE LIFE — Live Your American Story</title>
 <style>
-:root{--bg:#090d16;--panel:#111827;--panel2:#172235;--line:#29364a;--text:#edf3ff;--muted:#93a4bd;--cyan:#53e0d0;--gold:#f8c66b;--purple:#9e8cff;--green:#82e6a2}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(1000px 600px at 55% -10%,#1d2b47 0%,var(--bg) 65%);color:var(--text);font:14px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
-button,input,select{font:inherit}button{cursor:pointer;border:1px solid var(--line);background:#1b2940;color:var(--text);border-radius:10px;padding:10px 13px;transition:.18s}button:hover{border-color:var(--cyan);transform:translateY(-1px)}button.primary{background:var(--cyan);color:#07151a;border-color:transparent;font-weight:800}button.ghost{background:transparent}button:disabled{opacity:.4;cursor:not-allowed;transform:none}
-.app{display:grid;grid-template-columns:238px minmax(0,1fr);min-height:100vh}.sidebar{padding:24px 16px;border-right:1px solid #243047;background:#0b111d;display:flex;flex-direction:column;gap:25px}.brand{display:flex;gap:11px;align-items:center;padding:0 8px}.logo{height:42px;width:42px;border-radius:13px;background:linear-gradient(145deg,var(--cyan),#4b88e9);display:grid;place-items:center;color:#06141a;font-weight:1000;font-size:18px;box-shadow:0 8px 25px #53e0d026}.brand h1{font-size:17px;letter-spacing:1.7px;margin:0}.brand small{color:var(--muted);font-size:10px;letter-spacing:2px}.navlabel{font-size:10px;color:#657690;font-weight:800;letter-spacing:1.5px;padding:0 12px;margin-bottom:5px}.nav{display:grid;gap:5px}.nav button{background:transparent;border-color:transparent;color:#aab8cc;text-align:left;display:flex;align-items:center;gap:12px;padding:12px}.nav button.active{background:#172438;color:var(--cyan);border-color:#2a4058}.nav .ico{width:20px;text-align:center;font-size:16px}.sidebar-bottom{margin-top:auto;border:1px solid #2b4051;background:linear-gradient(135deg,#122b32,#131b2b);padding:15px;border-radius:14px}.freepill{display:inline-flex;align-items:center;gap:6px;background:#16392f;color:var(--green);font-size:10px;font-weight:900;letter-spacing:1px;border-radius:99px;padding:5px 8px}.sidebar-bottom p{color:#a6b6c9;font-size:12px;margin:9px 0 0}
-main{min-width:0;padding:24px clamp(16px,3vw,36px) 40px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:24px}.eyebrow{color:var(--cyan);font-size:11px;letter-spacing:2px;font-weight:900}.topbar h2{margin:4px 0 0;font-size:clamp(24px,3vw,34px);letter-spacing:-.8px}.topright{display:flex;align-items:center;gap:10px}.coinbox,.profile{border:1px solid var(--line);background:#111a29;border-radius:12px;padding:9px 12px;display:flex;align-items:center;gap:8px;white-space:nowrap}.coin{color:var(--gold);font-weight:900}.avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(145deg,#ffc98a,#db8b72);display:grid;place-items:center;color:#302019;font-weight:900}.profile small{display:block;color:var(--muted);font-size:10px}.grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(260px,.85fr);gap:18px}.panel{border:1px solid var(--line);background:linear-gradient(145deg,#121c2b,#0f1724);border-radius:17px;overflow:hidden;min-width:0}.panelhead{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:17px 19px;border-bottom:1px solid #253147}.panelhead h3{margin:0;font-size:15px}.sub{color:var(--muted);font-size:12px}.world{position:relative;min-height:440px;background:#121e29}.world canvas{display:block;width:100%;height:440px}.worldbadge{position:absolute;top:15px;left:15px;display:flex;gap:7px;flex-wrap:wrap}.tag{background:#0a1321d9;border:1px solid #34475b;color:#dce7f6;padding:7px 10px;border-radius:9px;font-size:11px;backdrop-filter:blur(8px)}.tag strong{color:var(--cyan)}.worldhelp{position:absolute;bottom:13px;left:13px;right:13px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;color:#d7e4f1;font-size:11px}.worldhelp span{background:#09121de0;padding:7px 9px;border:1px solid #304155;border-radius:8px}.rightcol{display:grid;align-content:start;gap:18px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:14px}.stat{padding:12px;background:#111b2a;border:1px solid #25344a;border-radius:12px}.stat label{display:block;color:var(--muted);font-size:10px;margin-bottom:5px}.stat strong{font-size:19px}.progress{height:5px;background:#28364b;border-radius:10px;margin-top:9px;overflow:hidden}.progress span{display:block;height:100%;background:var(--cyan);border-radius:10px}.activitylist{padding:4px 16px 14px}.activity{display:flex;gap:11px;padding:12px 3px;border-bottom:1px solid #233047}.activity:last-child{border:0}.activityicon{width:37px;height:37px;border-radius:11px;background:#1b2a3e;display:grid;place-items:center;font-size:17px;flex-shrink:0}.activity strong{font-size:12px}.activity p{margin:3px 0 0;color:var(--muted);font-size:11px}.actionrow{display:flex;gap:8px;flex-wrap:wrap;padding:0 16px 16px}.section{display:none}.section.active{display:block}.sectionpanel{padding:20px}.sectiontitle{margin:0 0 6px;font-size:24px}.sectiondesc{color:var(--muted);margin:0 0 20px}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.featurecard{background:#121e2e;border:1px solid #2b3a50;border-radius:14px;padding:17px}.featurecard .bigico{font-size:24px}.featurecard h4{margin:10px 0 5px}.featurecard p{color:var(--muted);font-size:12px;min-height:35px}.featurecard .foot{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:12px}.price{color:var(--gold);font-weight:800}.formrow{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0}.formrow label{display:grid;gap:6px;color:var(--muted);font-size:12px}.formrow input,.formrow select{background:#0b1421;border:1px solid #34445b;color:var(--text);border-radius:9px;padding:10px;min-width:160px}.notice{border:1px solid #284c49;background:#102c2a;color:#b4f4df;border-radius:11px;padding:12px 14px;font-size:12px;margin:14px 0}.mapstates{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}.state{padding:10px 6px;text-align:center;font-size:11px;background:#121e2e;border:1px solid #293950;border-radius:9px}.state.available{border-color:#3b8c80;color:var(--cyan);background:#102b2b}.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#e7fff8;color:#0b2420;padding:12px 18px;border-radius:11px;font-weight:800;box-shadow:0 10px 40px #0007;transition:.25s;z-index:5}.toast.show{opacity:1;transform:translate(-50%,0)}.mobile-nav{display:none}
-@media(max-width:950px){.app{grid-template-columns:78px minmax(0,1fr)}.sidebar{padding:20px 9px}.brand{justify-content:center;padding:0}.brandcopy,.navlabel,.navtext,.sidebar-bottom{display:none}.nav button{justify-content:center;padding:12px}.grid{grid-template-columns:1fr}.rightcol{grid-template-columns:repeat(2,minmax(0,1fr))}.rightcol>.panel:first-child{grid-column:1/-1}}
-@media(max-width:620px){.app{display:block;padding-bottom:70px}.sidebar{display:none}main{padding:17px 12px}.topbar{align-items:flex-start}.topright{gap:6px}.coinbox{padding:8px;font-size:12px}.profile{padding:5px}.profilecopy{display:none}.grid{display:block}.rightcol{display:grid;grid-template-columns:1fr;margin-top:15px}.world,.world canvas{min-height:350px;height:350px}.cards{grid-template-columns:1fr}.mapstates{grid-template-columns:repeat(3,minmax(0,1fr))}.mobile-nav{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:4;background:#0b111df2;border-top:1px solid var(--line);justify-content:space-around;padding:7px 4px env(safe-area-inset-bottom)}.mobile-nav button{background:transparent;border:0;padding:7px 5px;font-size:10px;color:#aab8cc;display:grid;gap:3px;justify-items:center}.mobile-nav button.active{color:var(--cyan)}.topbar h2{font-size:25px}}
+:root{color-scheme:dark;--bg:#08111d;--panel:#101d2d;--line:#2a4057;--mint:#55e4d0;--gold:#f5c66c;--muted:#a6b6c9}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#edf5ff;font:14px/1.45 system-ui,-apple-system,Segoe UI,sans-serif}button,input{font:inherit}button{cursor:pointer;border:1px solid var(--line);border-radius:10px;padding:10px 13px;background:#1a2b40;color:#edf5ff}button:hover{border-color:var(--mint)}button.primary{background:var(--mint);color:#07151a;font-weight:800;border-color:transparent}input{width:100%;min-width:0;background:#081522;border:1px solid #354a60;border-radius:9px;padding:10px;color:#fff}.app{max-width:1500px;margin:auto;padding:16px;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:14px}.head{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-size:22px;font-weight:950;letter-spacing:2px}.brand small{display:block;font-size:10px;color:var(--mint);letter-spacing:2px}.panel{border:1px solid var(--line);background:var(--panel);border-radius:16px;overflow:hidden}.world{position:relative;min-height:520px;height:calc(100vh - 125px);max-height:900px}.world canvas{display:block;width:100%;height:100%;outline:0}.overlay{position:absolute;top:12px;left:12px;right:12px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;pointer-events:none}.pill{background:#081522df;border:1px solid #34495e;padding:7px 10px;border-radius:9px;font-size:12px;backdrop-filter:blur(6px)}.pill b{color:var(--mint)}.help{position:absolute;bottom:12px;left:12px;right:12px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;pointer-events:none}.help span{background:#081522e8;border:1px solid #34495e;border-radius:8px;padding:7px 9px;font-size:11px}.side{display:grid;align-content:start;gap:14px}.section{padding:16px}.section h2{margin:0 0 4px;font-size:16px}.muted{color:var(--muted);font-size:12px}.form{display:grid;gap:10px;margin-top:12px}.form label{display:grid;gap:5px;font-size:12px;color:var(--muted)}.row{display:flex;gap:8px}.row>*{min-width:0;flex:1}.status{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:12px}.dot{color:var(--gold);font-weight:800}.tip{border:1px solid #28514d;background:#102d2c;border-radius:10px;padding:11px;font-size:12px;color:#c7fff2;margin-top:12px}.places{display:grid;gap:8px;margin-top:12px}.place{padding:10px;border:1px solid #293f55;border-radius:10px;background:#0b1725}.place strong{display:block}.place small{color:var(--muted)}.footer{font-size:11px;color:#8295aa;line-height:1.5}.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,20px);opacity:0;transition:.2s;background:#e5fff8;color:#09241e;border-radius:10px;padding:12px 16px;font-weight:800;pointer-events:none;z-index:9}.toast.show{opacity:1;transform:translate(-50%,0)}@media(max-width:900px){.app{grid-template-columns:1fr;padding:10px}.head{grid-column:auto}.world{height:62vh;min-height:420px}.side{grid-template-columns:1fr 1fr}.side .full{grid-column:1/-1}}@media(max-width:560px){.head{align-items:flex-start}.brand{font-size:18px}.world{height:58vh;min-height:360px}.side{grid-template-columns:1fr}.side .full{grid-column:auto}.app{gap:10px}.overlay{left:8px;right:8px;top:8px}.help{left:8px;right:8px;bottom:8px}}
 </style>
 </head>
 <body>
 <div class="app">
-<aside class="sidebar">
-  <div class="brand"><div class="logo">YL</div><div class="brandcopy"><h1>YANKEE LIFE</h1><small>LIVE YOUR STORY</small></div></div>
-  <div><div class="navlabel">YOUR WORLD</div><nav class="nav" id="sideNav">
-    <button class="active" data-page="city"><span class="ico">⌂</span><span class="navtext">City Life</span></button>
-    <button data-page="life"><span class="ico">◉</span><span class="navtext">My Life</span></button>
-    <button data-page="jobs"><span class="ico">▣</span><span class="navtext">Jobs & Careers</span></button>
-    <button data-page="housing"><span class="ico">⌂</span><span class="navtext">Housing</span></button>
-    <button data-page="business"><span class="ico">▥</span><span class="navtext">My Business</span></button>
-    <button data-page="map"><span class="ico">◎</span><span class="navtext">United States</span></button>
-  </nav></div>
-  <div><div class="navlabel">COMMUNITY</div><nav class="nav"><button data-page="community"><span class="ico">♧</span><span class="navtext">Community</span></button></nav></div>
-  <div class="sidebar-bottom"><span class="freepill">● 100% FREE TO PLAY</span><p>No paywalls. No payment screens. Build your story by playing.</p></div>
-</aside>
-<main>
-<header class="topbar"><div><div class="eyebrow">NEW YORK CITY · EARLY ACCESS</div><h2 id="pageTitle">Your city is waiting.</h2></div><div class="topright"><div class="coinbox">🪙 <span class="coin" id="coinCount">250</span></div><div class="profile"><div class="avatar" id="avatarInitial">Y</div><div class="profilecopy"><strong id="profileName">YankeePlayer</strong><small id="profileMeta">New Yorker · Level 1</small></div></div></div></header>
-
-<section class="section active" id="page-city">
-<div class="panel" style="margin-bottom:18px">
-  <div class="panelhead"><div><h3>🌐 Play with a friend</h3><div class="sub">Connect two devices from different locations using the same room code.</div></div><span class="tag" id="mpStatus"><strong>OFFLINE</strong></span></div>
-  <div class="sectionpanel" style="padding:14px 17px">
-    <div class="formrow" style="margin:0;align-items:end">
-      <label style="flex:2">Multiplayer server URL<input id="serverUrl" placeholder="wss://your-server.example.com" value="ws://localhost:3001" style="width:100%"></label>
-      <label style="flex:1">Room code<input id="roomCode" maxlength="16" value="TIMESQUARE" style="width:100%;text-transform:uppercase"></label>
-      <button class="primary" id="connectBtn" onclick="toggleMultiplayer()">Connect</button>
-    </div>
-    <div class="sub" style="margin-top:10px" id="mpHelp">For two devices in different locations, host the included server publicly and enter its secure WSS URL on both devices. localhost only works on the same computer.</div>
-    <div id="mpPlayers" class="sub" style="margin-top:7px">Players connected: 0 / 2</div>
-  </div>
-</div>
-<div class="grid">
-<div class="panel"><div class="panelhead"><div><h3>📍 Times Square District</h3><div class="sub">Manhattan, New York · Live city prototype</div></div><span class="freepill">FREE WORLD</span></div>
-<div class="world"><canvas id="cityCanvas" aria-label="Interactive top-down city prototype"></canvas><div class="worldbadge"><span class="tag">☀️ <strong>Clear skies</strong></span><span class="tag">🕒 <strong id="clock">10:24 AM</strong></span><span class="tag">👤 <strong>Single-player preview</strong></span></div><div class="worldhelp"><span>⌨️ Move: <b>W A S D</b> or arrows</span><span>⚡ Press <b>E</b> near a location</span><span id="nearbyText">Explore the block</span></div></div>
-</div>
-<div class="rightcol">
-<div class="panel"><div class="panelhead"><h3>Life at a glance</h3><span class="sub">Today</span></div><div class="stats">
-<div class="stat"><label>ENERGY</label><strong id="energyNum">82%</strong><div class="progress"><span id="energyBar" style="width:82%"></span></div></div>
-<div class="stat"><label>MOOD</label><strong id="moodNum">Good</strong><div class="progress"><span style="width:76%;background:#9e8cff"></span></div></div>
-<div class="stat"><label>LEVEL</label><strong id="levelNum">1</strong><div class="progress"><span id="xpBar" style="width:12%;background:#f8c66b"></span></div></div>
-</div><div class="activitylist" id="activityList"><div class="activity"><div class="activityicon">🌆</div><div><strong>Welcome to New York</strong><p>Your story starts here. Explore the city and find work.</p></div></div><div class="activity"><div class="activityicon">💼</div><div><strong>First-day opportunity</strong><p>Visit the Job Center to earn your first coins.</p></div></div></div><div class="actionrow"><button class="primary" onclick="navigate('jobs')">Find a job ↗</button><button onclick="navigate('life')">My profile</button></div></div>
-<div class="panel"><div class="panelhead"><h3>Quick actions</h3></div><div class="actionrow" style="padding-top:14px"><button onclick="interact('cafe')">☕ Get a snack</button><button onclick="interact('park')">🌳 Relax</button><button onclick="interact('job')">💼 Work shift</button></div></div>
-</div></div>
+<header class="head"><div class="brand">YANKEE LIFE<small>LIVE YOUR STORY · 3D MULTIPLAYER</small></div><div class="pill">🪙 <b>FREE TO PLAY</b></div></header>
+<section class="panel world"><canvas id="game" aria-label="Three-dimensional city game world"></canvas><div class="overlay"><span class="pill">📍 <b>MANHATTAN DISTRICT</b></span><span class="pill" id="worldStatus">Loading 3D city…</span><span class="pill" id="players">Players: 1 / 2</span></div><div class="help"><span>Move: <b>W A S D</b> / arrows</span><span>Look: <b>drag mouse</b></span><span>Interact: <b>E</b> near a place</span></div></section>
+<aside class="side">
+<section class="panel section"><h2>Play with a friend</h2><div class="muted">Use the same room code on both devices.</div>
+<div class="form"><label>Display name<input id="playerName" maxlength="22" value="YankeePlayer"></label><div class="row"><label>Room code<input id="room" maxlength="16" value="TIMESQUARE"></label><button id="connect" class="primary">Connect</button></div><label>Multiplayer server<input id="server" value="ws://localhost:3001" spellcheck="false"></label></div>
+<div class="status"><span class="muted">Connection</span><span class="dot" id="status">OFFLINE</span></div>
+<div class="tip" id="hint">Open this game on two devices. On the public site, the secure multiplayer server URL is filled in automatically.</div>
 </section>
-
-<section class="section" id="page-life"><div class="panel"><div class="sectionpanel"><div class="eyebrow">YOUR IDENTITY</div><h3 class="sectiontitle">Build your life</h3><p class="sectiondesc">Customize your virtual profile and keep your progress saved on this device.</p><div class="formrow"><label>Display name<input id="nameInput" maxlength="22" value="YankeePlayer"></label><label>Home state<select id="stateInput"></select></label><label>Avatar style<select id="avatarInput"><option value="🧑🏽">City casual</option><option value="👩🏽">Street style</option><option value="🧑🏻">Classic</option><option value="🧔🏾">Urban look</option></select></label></div><button class="primary" onclick="saveProfile()">Save profile</button><div class="notice">Prototype note: this demo saves profile and gameplay progress in this browser only. Secure accounts and cloud saves are part of the next backend phase.</div><div class="cards"><div class="featurecard"><div class="bigico">⚡</div><h4>Energy</h4><p>Take a break to restore your energy before your next shift.</p><div class="foot"><span id="energyDetail">82 / 100</span><button onclick="interact('rest')">Rest</button></div></div><div class="featurecard"><div class="bigico">🏆</div><h4>Progress</h4><p>Work and explore to gain experience and level up.</p><div class="foot"><span id="xpDetail">12 XP</span><span class="sub">Level <b id="levelDetail">1</b></span></div></div></div></div></div></section>
-
-<section class="section" id="page-jobs"><div class="panel"><div class="sectionpanel"><div class="eyebrow">CAREER CENTER</div><h3 class="sectiontitle">Earn your place in the city.</h3><p class="sectiondesc">Every job is free to access. Complete a shift to earn non-redeemable Yankee Coins and experience.</p><div class="cards">
-<div class="featurecard"><div class="bigico">🚕</div><h4>Taxi Driver</h4><p>Pick up virtual passengers and navigate city routes.</p><div class="foot"><span class="price">+45 coins · +15 XP</span><button class="primary" onclick="doJob('Taxi Driver',45,15,12)">Start shift</button></div></div>
-<div class="featurecard"><div class="bigico">📦</div><h4>Delivery Courier</h4><p>Deliver packages to businesses around Times Square.</p><div class="foot"><span class="price">+35 coins · +12 XP</span><button class="primary" onclick="doJob('Delivery Courier',35,12,10)">Start shift</button></div></div>
-<div class="featurecard"><div class="bigico">🍔</div><h4>Restaurant Worker</h4><p>Help serve customers during a busy lunch rush.</p><div class="foot"><span class="price">+40 coins · +14 XP</span><button class="primary" onclick="doJob('Restaurant Worker',40,14,14)">Start shift</button></div></div>
-<div class="featurecard"><div class="bigico">🛍️</div><h4>Retail Associate</h4><p>Stock shelves and help shoppers find what they need.</p><div class="foot"><span class="price">+30 coins · +10 XP</span><button class="primary" onclick="doJob('Retail Associate',30,10,8)">Start shift</button></div></div>
-</div><div class="notice">Virtual rewards only. Yankee Coins have no cash value and cannot be withdrawn or exchanged for real money.</div></div></div></section>
-
-<section class="section" id="page-housing"><div class="panel"><div class="sectionpanel"><div class="eyebrow">REAL ESTATE</div><h3 class="sectiontitle">Find a place to call home.</h3><p class="sectiondesc">Explore starter homes using only the virtual coins you earn in-game. No real-money purchases.</p><div class="cards">
-<div class="featurecard"><div class="bigico">🏢</div><h4>Starter Studio</h4><p>A compact first home close to the action.</p><div class="foot"><span class="price">120 coins</span><button class="primary" id="rentBtn" onclick="rentHome()">Rent home</button></div></div>
-<div class="featurecard"><div class="bigico">🏙️</div><h4>Manhattan Apartment</h4><p>A little more room, with a view of the city.</p><div class="foot"><span class="price">300 coins</span><button onclick="toast('Keep working to unlock this apartment.')">View details</button></div></div>
-</div><div class="notice" id="homeNotice">You are currently staying in the city starter area. Rent a studio to make it your home.</div></div></div></section>
-
-<section class="section" id="page-business"><div class="panel"><div class="sectionpanel"><div class="eyebrow">ENTREPRENEURSHIP</div><h3 class="sectiontitle">Start something of your own.</h3><p class="sectiondesc">Build a virtual storefront with earned coins. Business management is an early prototype.</p><div class="cards">
-<div class="featurecard"><div class="bigico">☕</div><h4>Corner Coffee</h4><p>Open a neighborhood café and serve the local crowd.</p><div class="foot"><span class="price">200 coins to launch</span><button class="primary" id="businessBtn" onclick="startBusiness()">Open business</button></div></div>
-<div class="featurecard"><div class="bigico">👕</div><h4>Streetwear Shop</h4><p>A future storefront for original outfits and accessories.</p><div class="foot"><span class="sub">Coming soon</span><button onclick="toast('This business type is planned for a later update.')">Preview</button></div></div>
-</div><div class="notice" id="businessNotice">Your first storefront can be opened once you have enough earned coins.</div></div></div></section>
-
-<section class="section" id="page-map"><div class="panel"><div class="sectionpanel"><div class="eyebrow">ONE COUNTRY · 50 STATES</div><h3 class="sectiontitle">Your America, one city at a time.</h3><p class="sectiondesc">All 50 states are represented in the roadmap. New York City is the first playable prototype location.</p><div class="mapstates" id="stateGrid"></div><div class="notice">New York is the first playable district in this prototype. Additional states are planned, not yet playable. Your selected home state is a game profile choice—not verified residency.</div></div></div></section>
-
-<section class="section" id="page-community"><div class="panel"><div class="sectionpanel"><div class="eyebrow">COMMUNITY</div><h3 class="sectiontitle">A city is better together.</h3><p class="sectiondesc">Social systems are planned for the multiplayer phase.</p><div class="cards"><div class="featurecard"><div class="bigico">👥</div><h4>Friends & meetups</h4><p>Invite friends, meet neighbors, and plan community activities.</p><div class="foot"><span class="sub">Multiplayer phase</span><button onclick="toast('Real multiplayer is not connected in this prototype yet.')">Preview</button></div></div><div class="featurecard"><div class="bigico">💬</div><h4>Safe chat</h4><p>Proximity chat, player blocking, and reporting tools.</p><div class="foot"><span class="sub">Planned feature</span><button onclick="toast('Chat and moderation need a secure backend.')">Details</button></div></div></div><div class="notice">This version is a local playable prototype. It does not yet connect real players or perform identity/residency verification.</div></div></div></section>
-<footer style="color:#6f819b;font-size:11px;padding:20px 3px">YANKEE LIFE prototype · Free to play · Original concept · Progress is stored locally on this device.</footer>
-</main>
-</div>
-<nav class="mobile-nav" id="mobileNav"><button data-page="city" class="active">⌂<span>City</span></button><button data-page="jobs">▣<span>Jobs</span></button><button data-page="housing">⌂<span>Home</span></button><button data-page="business">▥<span>Business</span></button><button data-page="life">◉<span>Profile</span></button></nav>
-<div class="toast" id="toast"></div>
-<script>
-const states=["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
-const defaults={name:"YankeePlayer",state:"New York",avatar:"🧑🏽",coins:250,energy:82,xp:12,level:1,home:false,business:false,activities:[]};
-let data={...defaults,...(JSON.parse(localStorage.getItem("yankeeLifeSave")||"{}"))};
+<section class="panel section"><h2>Explore the city</h2><div class="muted">Walk to a destination and press E.</div><div class="places">
+<div class="place"><strong>💼 Job Center</strong><small>Find work and build your career</small></div>
+<div class="place"><strong>☕ Corner Café</strong><small>Take a break in the neighborhood</small></div>
+<div class="place"><strong>🌳 Bryant Park</strong><small>Relax in the green space</small></div>
+<div class="place"><strong>🏢 City Apartments</strong><small>Explore your neighborhood</small></div>
+</div></section>
+<section class="panel section full"><h2>Prototype notes</h2><p class="footer">This is a free early-access game prototype. Multiplayer synchronizes player positions in a shared room. It does not yet include accounts, cloud saves, private-room passwords, or authoritative game progression. Three-dimensional graphics are loaded from the Three.js CDN.</p></section>
+</aside>
+</div><div id="toast" class="toast"></div>
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js';
 const $=id=>document.getElementById(id);
-(function setDefaultMultiplayerUrl(){
- const input=$("serverUrl");
- if(!input) return;
- const local=["localhost","127.0.0.1"].includes(location.hostname);
- if(!local && (input.value==="" || input.value==="ws://localhost:3001")){
-   input.value=(location.protocol==="https:"?"wss://":"ws://")+location.host;
+const canvas=$('game');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+renderer.outputColorSpace=THREE.SRGBColorSpace;
+const scene=new THREE.Scene();scene.background=new THREE.Color(0x9fc7dc);scene.fog=new THREE.Fog(0x9fc7dc,55,155);
+const camera=new THREE.PerspectiveCamera(62,1,.1,250);
+scene.add(new THREE.HemisphereLight(0xdff1ff,0x3d5545,2.0));
+const sun=new THREE.DirectionalLight(0xffedc8,3.0);sun.position.set(-25,45,20);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);scene.add(sun);
+const mat=(color,roughness=.85)=>new THREE.MeshStandardMaterial({color,roughness});
+const grass=mat(0x6d9c72),asphalt=mat(0x3a4652),sidewalk=mat(0xc6c3b7),lineMat=mat(0xf5d889),glass=mat(0x78a6bd),trunk=mat(0x654a34),leaf=mat(0x39764b);
+function box(w,h,d,material,x,y,z,shadow=true){const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),material);m.position.set(x,y,z);m.castShadow=shadow;m.receiveShadow=true;scene.add(m);return m}
+box(180,.5,180,grass,0,-.45,0,false);
+box(180,.12,15,asphalt,0,-.12,0,false);box(15,.12,180,asphalt,0,-.11,0,false);
+for(let i=-80;i<=80;i+=8){box(3,.03,.18,lineMat,i,-.035,0,false);box(.18,.03,3,lineMat,0,-.03,i,false)}
+for(let i=-80;i<=80;i+=15){box(180,.13,.6,sidewalk,0,-.01,i,false);box(.6,.13,180,sidewalk,i,-.01,0,false)}
+const buildings=[];
+const palettes=[0x8799a8,0xb9a58e,0x758c9b,0xd2c5ad,0x8b9a8c,0x7b8192,0xc1b5a4];
+for(let gx=-5;gx<=5;gx++)for(let gz=-5;gz<=5;gz++){
+ if(Math.abs(gx)<=1||Math.abs(gz)<=1)continue;
+ const x=gx*14+(Math.random()-.5)*2,z=gz*14+(Math.random()-.5)*2;
+ const w=7+Math.random()*3,d=7+Math.random()*3,h=5+Math.random()*20;
+ const b=box(w,h,d,mat(palettes[Math.floor(Math.random()*palettes.length)]),x,h/2-.12,z);
+ buildings.push(b);
+ for(let yy=2;yy<h-1;yy+=2.5)for(let xx=-w/2+1;xx<w/2-.5;xx+=1.8){
+   const win=box(.85,.85,.06,glass,x+xx,yy,z-d/2-.035,false);win.castShadow=false;
  }
-})();
-function save(){localStorage.setItem("yankeeLifeSave",JSON.stringify(data));updateUI()}
-function updateUI(){
- $("coinCount").textContent=data.coins;$("profileName").textContent=data.name;$("profileMeta").textContent=data.state+" · Level "+data.level;$("avatarInitial").textContent=data.avatar||data.name.charAt(0).toUpperCase();
- $("energyNum").textContent=data.energy+"%";$("energyBar").style.width=data.energy+"%";$("levelNum").textContent=data.level;$("xpBar").style.width=(data.xp%100)+"%";$("energyDetail").textContent=data.energy+" / 100";$("xpDetail").textContent=data.xp+" XP";$("levelDetail").textContent=data.level;
- $("nameInput").value=data.name;$("stateInput").value=data.state;$("avatarInput").value=data.avatar;
- $("rentBtn").textContent=data.home?"✓ Studio rented":"Rent home";$("rentBtn").disabled=data.home;
- $("homeNotice").textContent=data.home?"You have a starter studio! Your virtual home is saved in this browser.":"You are currently staying in the city starter area. Rent a studio to make it your home.";
- $("businessBtn").textContent=data.business?"✓ Business open":"Open business";$("businessBtn").disabled=data.business;
- $("businessNotice").textContent=data.business?"Corner Coffee is open! Manage your virtual storefront as you progress.":"Your first storefront can be opened once you have enough earned coins.";
- $("activityList").innerHTML=(data.activities.slice(-3).reverse().map(a=>`<div class="activity"><div class="activityicon">${a.icon}</div><div><strong>${escapeHTML(a.title)}</strong><p>${escapeHTML(a.desc)}</p></div></div>`).join(""))||'<div class="activity"><div class="activityicon">🌆</div><div><strong>Welcome to New York</strong><p>Your story starts here.</p></div></div>';
 }
-function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-function log(icon,title,desc){data.activities.push({icon,title,desc});if(data.activities.length>20)data.activities.shift()}
-function toast(msg){const el=$("toast");el.textContent=msg;el.classList.add("show");clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>el.classList.remove("show"),2400)}
-const pageTitles={city:"Your city is waiting.",life:"Your story, your identity.",jobs:"Find your next opportunity.",housing:"A place to call home.",business:"Make your own opportunity.",map:"Explore the United States.",community:"Meet your community."};
-function navigate(page){document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));$("page-"+page).classList.add("active");document.querySelectorAll("[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===page));$("pageTitle").textContent=pageTitles[page];window.scrollTo({top:0,behavior:"smooth"})}
-document.querySelectorAll("[data-page]").forEach(b=>b.addEventListener("click",()=>navigate(b.dataset.page)));
-function saveProfile(){data.name=$("nameInput").value.trim().slice(0,22)||"YankeePlayer";data.state=$("stateInput").value;data.avatar=$("avatarInput").value;log("🪪","Profile updated","Your virtual identity was saved.");save();sendPlayerState();toast("Profile saved on this device.")}
-function addXP(x){data.xp+=x;while(data.xp>=100){data.xp-=100;data.level++;data.coins+=50;log("🏆","Level up!","Level "+data.level+" reached. Bonus: 50 coins.")}}
-function doJob(name,pay,xp,energy){if(data.energy<energy){toast("You need more energy. Rest first.");return}data.coins+=pay;data.energy=Math.max(0,data.energy-energy);addXP(xp);log("💼",name+" shift complete","+"+pay+" coins and +"+xp+" XP earned.");save();toast("Shift complete! +"+pay+" coins");}
-function interact(kind){
- if(kind==="job"){doJob("City work shift",25,8,10);return}
- if(kind==="rest"){data.energy=Math.min(100,data.energy+25);log("🛋️","Rested up","Energy restored by 25.");save();toast("Energy restored.");return}
- if(kind==="cafe"){if(data.coins<8){toast("You need 8 coins for a snack.");return}data.coins-=8;data.energy=Math.min(100,data.energy+12);log("☕","Quick café stop","Enjoyed a snack. Energy +12.");save();toast("Snack enjoyed. Energy +12.");return}
- if(kind==="park"){data.energy=Math.min(100,data.energy+8);addXP(3);log("🌳","Park break","A quiet break improved your mood.");save();toast("You feel refreshed.");}
+function tree(x,z){box(.35,1.6,.35,trunk,x,.8,z,false);const crown=new THREE.Mesh(new THREE.SphereGeometry(1.25,10,8),leaf);crown.position.set(x,2.3,z);crown.castShadow=true;scene.add(crown)}
+for(let i=-70;i<=70;i+=10){if(Math.abs(i)<18)continue;tree(i,9);tree(i,-9);tree(9,i);tree(-9,i)}
+const destinations=[
+ {id:'job',name:'Job Center',icon:'💼',x:-20,z:-22,color:0x42c9bd},
+ {id:'cafe',name:'Corner Café',icon:'☕',x:22,z:-18,color:0xf2bb65},
+ {id:'park',name:'Bryant Park',icon:'🌳',x:-28,z:24,color:0x73d18d},
+ {id:'home',name:'City Apartments',icon:'🏢',x:28,z:25,color:0x9f92ff}
+];
+const labels=[];
+function makeLabel(text,color){
+ const c=document.createElement('canvas');c.width=512;c.height=128;const g=c.getContext('2d);
+ g.fillStyle='rgba(5,15,25,.82)';g.fillRect(4,12,504,104);g.strokeStyle='#'+color.toString(16).padStart(6,'0');g.lineWidth=6;g.strokeRect(4,12,504,104);
+ g.fillStyle='#ffffff';g.font='bold 38px system-ui';g.textAlign='center';g.fillText(text,256,78);
+ const tex=new THREE.CanvasTexture(c);tex.colorSpace=THREE.SRGBColorSpace;
+ const sprite=new THREE.Sprite(new THREE.SpriteMaterial({map:tex,transparent:true,depthTest:false}));sprite.scale.set(8,2,1);return sprite;
 }
-function rentHome(){if(data.home)return;if(data.coins<120){toast("You need 120 coins. Complete a job first.");return}data.coins-=120;data.home=true;log("🏢","Starter studio rented","Your new virtual home is ready.");save();toast("Welcome home! Studio rented.");}
-function startBusiness(){if(data.business)return;if(data.coins<200){toast("You need 200 coins. Earn more through jobs.");return}data.coins-=200;data.business=true;log("☕","Corner Coffee opened","You launched your first virtual storefront.");save();toast("Your business is open!")}
-$("stateInput").innerHTML=states.map(s=>`<option>${s}</option>`).join("");
-$("stateGrid").innerHTML=states.map(s=>`<div class="state ${s==="New York"?"available":""}">${s}${s==="New York"?" · LIVE":" · SOON"}</div>`).join("");
-// Canvas city: a lightweight playable prototype with original geometric city art.
-const canvas=$("cityCanvas"),ctx=canvas.getContext("2d");let player={x:0,y:0,dir:0};let keys={};let buildings=[];let world={w:900,h:600};let remotePlayers={};let mpSocket=null;let mpConnected=false;let mpId=null;let lastSent=0;
-function resizeCanvas(){const r=canvas.getBoundingClientRect();const dpr=Math.min(window.devicePixelRatio||1,2);canvas.width=Math.round(r.width*dpr);canvas.height=Math.round(r.height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);if(!player.x){player.x=r.width/2;player.y=r.height/2+90}drawCity()}
-window.addEventListener("resize",resizeCanvas);
-const places=[{id:"job",name:"Job Center",x:.5,y:.25,color:"#42c9bd",icon:"💼"},{id:"cafe",name:"Corner Café",x:.78,y:.51,color:"#f2bb65",icon:"☕"},{id:"park",name:"Bryant Park",x:.24,y:.72,color:"#73d18d",icon:"🌳"},{id:"home",name:"Apartments",x:.75,y:.79,color:"#9f92ff",icon:"🏢"}];
-function drawCity(){
- const w=canvas.clientWidth,h=canvas.clientHeight;if(!w||!h)return;
- ctx.clearRect(0,0,w,h);
- // background and city blocks
- ctx.fillStyle="#172c32";ctx.fillRect(0,0,w,h);
- for(let y=0;y<h;y+=80)for(let x=0;x<w;x+=100){ctx.fillStyle=((x/100+y/80)%2===0)?"#203c3a":"#1c3536";ctx.fillRect(x+3,y+3,94,74)}
- // road grid
- ctx.fillStyle="#343e4c";ctx.fillRect(0,h*.36,w,h*.18);ctx.fillRect(w*.40,0,w*.17,h);
- ctx.fillStyle="#e0c878";ctx.globalAlpha=.75;
- for(let x=0;x<w;x+=42){ctx.fillRect(x,h*.445,22,2);ctx.fillRect(x,h*.535,22,2)}
- for(let y=0;y<h;y+=42){ctx.fillRect(w*.465,y,2,22);ctx.fillRect(w*.535,y,2,22)}ctx.globalAlpha=1;
- // buildings
- const blocks=[
- [w*.06,h*.08,w*.25,h*.21,"#304b61","HOTEL"],[w*.61,h*.07,w*.29,h*.22,"#39536a","OFFICES"],
- [w*.06,h*.48,w*.25,h*.19,"#3b4a61","STORES"],[w*.61,h*.42,w*.30,h*.20,"#344d60","CAFÉ"],
- [w*.55,h*.70,w*.35,h*.22,"#2c4558","APARTMENTS"],[w*.05,h*.76,w*.28,h*.18,"#274c43","PARK"]
- ];
- blocks.forEach(([x,y,bw,bh,c,label],i)=>{ctx.fillStyle="#101d2a";ctx.fillRect(x+5,y+7,bw,bh);ctx.fillStyle=c;ctx.fillRect(x,y,bw,bh);ctx.fillStyle="#172b3d";ctx.fillRect(x+7,y+7,bw-14,9);ctx.fillStyle="#b9d9e2";for(let yy=y+24;yy<y+bh-9;yy+=22)for(let xx=x+10;xx<x+bw-8;xx+=22){ctx.globalAlpha=.7;ctx.fillRect(xx,yy,10,8)}ctx.globalAlpha=1;ctx.fillStyle="#e6f1ff";ctx.font="bold 10px system-ui";ctx.fillText(label,x+9,y+bh-9)});
- // place markers
- places.forEach(p=>{let x=p.x*w,y=p.y*h;ctx.beginPath();ctx.fillStyle=p.color;ctx.globalAlpha=.18;ctx.arc(x,y,24,0,Math.PI*2);ctx.fill();ctx.globalAlpha=1;ctx.beginPath();ctx.fillStyle="#0b1621";ctx.arc(x,y,15,0,Math.PI*2);ctx.fill();ctx.strokeStyle=p.color;ctx.lineWidth=2;ctx.stroke();ctx.fillStyle="#fff";ctx.font="13px system-ui";ctx.textAlign="center";ctx.fillText(p.icon,x,y+5);ctx.textAlign="left";ctx.font="bold 10px system-ui";ctx.fillStyle="#e9f3ff";ctx.fillText(p.name,x+19,y+4)});
- // decorative cars
- [[w*.2,h*.41],[w*.73,h*.50],[w*.46,h*.16],[w*.52,h*.81]].forEach((p,i)=>{ctx.fillStyle=["#e5ba5e","#d9706e","#7eb8e8","#d9e1eb"][i];ctx.beginPath();ctx.roundRect(p[0]-11,p[1]-6,22,12,3);ctx.fill();ctx.fillStyle="#192b3d";ctx.fillRect(p[0]-6,p[1]-4,12,4)});
- // remote player avatars received from the multiplayer server
- Object.values(remotePlayers).forEach(rp=>{const rx=rp.x*w,ry=rp.y*h;ctx.save();ctx.translate(rx,ry);ctx.fillStyle="#050c15";ctx.beginPath();ctx.ellipse(0,10,10,5,0,0,Math.PI*2);ctx.fill();ctx.fillStyle="#ffbf69";ctx.beginPath();ctx.arc(0,0,10,0,Math.PI*2);ctx.fill();ctx.fillStyle="#f2c49b";ctx.beginPath();ctx.arc(0,-4,6,0,Math.PI*2);ctx.fill();ctx.fillStyle="#172538";ctx.fillRect(-6,5,12,9);ctx.restore();ctx.fillStyle="#fff0d9";ctx.font="bold 10px system-ui";ctx.textAlign="center";ctx.fillText((rp.name||"Player 2").slice(0,16),rx,ry-16);ctx.textAlign="left"});
- // player
- ctx.save();ctx.translate(player.x||w/2,player.y||h/2);ctx.fillStyle="#050c15";ctx.beginPath();ctx.ellipse(0,10,10,5,0,0,Math.PI*2);ctx.fill();ctx.fillStyle="#4de0d0";ctx.beginPath();ctx.arc(0,0,10,0,Math.PI*2);ctx.fill();ctx.fillStyle="#f4c29a";ctx.beginPath();ctx.arc(0,-4,6,0,Math.PI*2);ctx.fill();ctx.fillStyle="#162538";ctx.fillRect(-6,5,12,9);ctx.restore();
- // tiny skyline title
- ctx.fillStyle="#ffffff";ctx.font="800 11px system-ui";ctx.fillText("TIMES SQUARE • MANHATTAN",14,h-15);
- const nearest=places.map(p=>({...p,dist:Math.hypot(player.x-p.x*w,player.y-p.y*h)})).sort((a,b)=>a.dist-b.dist)[0];
- $("nearbyText").textContent=nearest.dist<58?"Nearby: "+nearest.name+" · Press E":"Nearby: "+nearest.name;
+for(const p of destinations){
+ const building=box(9,5,8,mat(p.color),p.x,2.5,p.z);
+ box(9.5,.35,8.5,mat(0x333b45),p.x,5.15,p.z);
+ for(let i=-1;i<=1;i++)box(.8,1.2,.08,glass,p.x+i*2,3.1,p.z-4.05,false);
+ const marker=new THREE.Mesh(new THREE.CylinderGeometry(.15,.15,4,10),mat(p.color));marker.position.set(p.x,7.5,p.z);scene.add(marker);
+ const label=makeLabel(p.icon+' '+p.name,p.color);label.position.set(p.x,10.2,p.z);scene.add(label);labels.push(label);
+ p.mesh=building;
 }
-function movePlayer(dx,dy){player.x=Math.max(15,Math.min(canvas.clientWidth-15,player.x+dx));player.y=Math.max(15,Math.min(canvas.clientHeight-15,player.y+dy));drawCity();sendPlayerState()}
-function sendPlayerState(){
- if(!mpConnected||!mpSocket||mpSocket.readyState!==WebSocket.OPEN)return;
- const now=Date.now();if(now-lastSent<50)return;lastSent=now;
- mpSocket.send(JSON.stringify({type:"move",name:data.name||"Player",x:player.x/Math.max(1,canvas.clientWidth),y:player.y/Math.max(1,canvas.clientHeight),avatar:data.avatar||"🧑"}));
+function makePerson(color=0x42c9bd){
+ const group=new THREE.Group();
+ const body=new THREE.Mesh(new THREE.CapsuleGeometry(.48,.8,4,8),mat(color));body.position.y=1.05;body.castShadow=true;group.add(body);
+ const head=new THREE.Mesh(new THREE.SphereGeometry(.34,16,12),mat(0xe8b991));head.position.y=1.92;head.castShadow=true;group.add(head);
+ const hair=new THREE.Mesh(new THREE.SphereGeometry(.35,12,8,0,Math.PI*2,0,Math.PI/2),mat(0x33251f));hair.position.y=2.08;group.add(hair);
+ const legmat=mat(0x26364a);
+ for(const side of [-1,1]){const leg=new THREE.Mesh(new THREE.BoxGeometry(.22,.62,.26),legmat);leg.position.set(side*.22,.32,0);group.add(leg)}
+ return group;
 }
-function setMpStatus(label,connected){$("mpStatus").innerHTML="<strong>"+label+"</strong>";$("mpPlayers").textContent="Players connected: "+(connected?Object.keys(remotePlayers).length+1:0)+" / 2";$("connectBtn").textContent=connected?"Disconnect":"Connect";$("mpStatus").style.borderColor=connected?"#3b8c80":"#34475b";$("mpStatus").style.color=connected?"#82e6a2":"#dce7f6"}
-function toggleMultiplayer(){
- if(mpSocket){mpSocket.close();mpSocket=null;mpConnected=false;remotePlayers={};drawCity();setMpStatus("OFFLINE",false);$("mpHelp").textContent="Disconnected. To play remotely, both devices must connect to the same public server URL and room code.";return}
- let url=$("serverUrl").value.trim(),room=$("roomCode").value.trim().toUpperCase();
- if(!url||!room){toast("Enter a server URL and room code.");return}
- try{mpSocket=new WebSocket(url)}catch(e){toast("That server URL is invalid.");return}
- $("mpHelp").textContent="Connecting…";
- mpSocket.onopen=()=>{mpSocket.send(JSON.stringify({type:"join",room,name:data.name||"Player",avatar:data.avatar||"🧑"}));$("mpHelp").textContent="Connected to server. Ask your friend to use the same server URL and room code.";};
- mpSocket.onmessage=ev=>{let m;try{m=JSON.parse(ev.data)}catch(e){return}
-   if(m.type==="welcome"){mpId=m.id;mpConnected=true;setMpStatus("CONNECTED",true);remotePlayers=m.players||{};drawCity()}
-   else if(m.type==="players"){remotePlayers=m.players||{};setMpStatus("CONNECTED",true);drawCity()}
-   else if(m.type==="playerMoved"){if(m.id!==mpId)remotePlayers[m.id]={name:m.name,x:m.x,y:m.y,avatar:m.avatar};setMpStatus("CONNECTED",true);drawCity()}
-   else if(m.type==="left"){delete remotePlayers[m.id];setMpStatus("CONNECTED",true);drawCity()}
-   else if(m.type==="roomFull"){toast("That room already has two players.");mpSocket.close();mpSocket=null;mpConnected=false;setMpStatus("ROOM FULL",false)}
-   else if(m.type==="error"){toast(m.message||"Multiplayer error.")}
+const player=makePerson(0x42c9bd);scene.add(player);player.position.set(0,0,0);
+const remotes=new Map();
+const state={x:0,z:0,yaw:0,keys:{},connected:false,ws:null,id:null,lastSent:0,remoteData:{}};
+let cameraYaw=0,cameraPitch=.28,dragging=false,lastPointer={x:0,y:0};
+canvas.addEventListener('pointerdown',e=>{dragging=true;lastPointer={x:e.clientX,y:e.clientY};canvas.setPointerCapture(e.pointerId)});
+canvas.addEventListener('pointermove',e=>{if(!dragging)return;cameraYaw-=(e.clientX-lastPointer.x)*.006;cameraPitch=Math.max(-.05,Math.min(.8,cameraPitch+(e.clientY-lastPointer.y)*.003));lastPointer={x:e.clientX,y:e.clientY}});
+canvas.addEventListener('pointerup',()=>dragging=false);canvas.addEventListener('pointercancel',()=>dragging=false);
+window.addEventListener('keydown',e=>{const k=e.key.toLowerCase();if(['w','a','s','d','arrowup','arrowdown','arrowleft','arrowright',' '].includes(k))e.preventDefault();state.keys[k]=true;if(k==='e')interactNearest()});
+window.addEventListener('keyup',e=>state.keys[e.key.toLowerCase()]=false);
+function toast(msg){$('toast').textContent=msg;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),2200)}
+function nearest(){return destinations.map(p=>({...p,dist:Math.hypot(state.x-p.x,state.z-p.z)})).sort((a,b)=>a.dist-b.dist)[0]}
+function interactNearest(){const p=nearest();if(p.dist>8)return toast('Walk closer to a destination first.');toast(p.name+': coming soon!')}
+function status(text,ok=false){$('status').textContent=text;$('status').style.color=ok?'#82e6a2':'#f5c66c';$('players').textContent='Players: '+(state.connected?1+remotes.size:1)+' / 2'}
+function sendPosition(){if(!state.connected||!state.ws||state.ws.readyState!==WebSocket.OPEN)return;const now=Date.now();if(now-state.lastSent<55)return;state.lastSent=now;state.ws.send(JSON.stringify({type:'move',name:$('playerName').value.trim().slice(0,22)||'Player',x:Math.max(.02,Math.min(.98,(state.x+50)/100)),y:Math.max(.02,Math.min(.98,(state.z+50)/100)),avatar:'🧑'}))}
+function setRemote(id,data){let person=remotes.get(id);if(!person){person=makePerson(0xf0b75e);scene.add(person);remotes.set(id,person)}person.position.set(data.x*100-50,0,data.y*100-50);person.userData.displayName=data.name||'Player 2';state.remoteData[id]=data}
+function connect(){
+ if(state.ws){state.ws.close();state.ws=null;state.connected=false;remotes.forEach(p=>scene.remove(p));remotes.clear();state.remoteData={};status('OFFLINE');$('connect').textContent='Connect';return}
+ let url=$('server').value.trim(),room=$('room').value.trim().toUpperCase();
+ if(!url||!room)return toast('Enter a server URL and room code.');
+ status('CONNECTING');
+ let ws;try{ws=new WebSocket(url)}catch(e){status('ERROR');return toast('Invalid server URL.')}
+ state.ws=ws;$('connect').textContent='Disconnect';
+ ws.onopen=()=>ws.send(JSON.stringify({type:'join',room,name:$('playerName').value.trim()||'Player',avatar:'🧑'}));
+ ws.onmessage=ev=>{let m;try{m=JSON.parse(ev.data)}catch{return}
+  if(m.type==='welcome'){state.connected=true;state.id=m.id;for(const [id,p] of Object.entries(m.players||{}))setRemote(id,p);status('CONNECTED',true);$('hint').textContent='Connected. Your friend should enter the same room code and server URL.'}
+  else if(m.type==='players'){for(const [id,p] of Object.entries(m.players||{}))setRemote(id,p);for(const id of [...remotes.keys()])if(!m.players[id]){scene.remove(remotes.get(id));remotes.delete(id)}status('CONNECTED',true)}
+  else if(m.type==='playerMoved'&&m.id!==state.id){setRemote(m.id,{x:m.x,y:m.y,name:m.name});status('CONNECTED',true)}
+  else if(m.type==='left'){if(remotes.has(m.id)){scene.remove(remotes.get(m.id));remotes.delete(m.id)}delete state.remoteData[m.id];status('CONNECTED',true)}
+  else if(m.type==='roomFull'){toast('That room already has two players.');ws.close()}
+  else if(m.type==='error')toast(m.message||'Multiplayer error');
  };
- mpSocket.onerror=()=>{$("mpHelp").textContent="Could not connect. Check that the server is running and the URL is correct.";setMpStatus("ERROR",false)};
- mpSocket.onclose=()=>{mpConnected=false;remotePlayers={};mpSocket=null;drawCity();setMpStatus("OFFLINE",false)};
+ ws.onerror=()=>{status('ERROR');$('hint').textContent='Could not connect. Check the server URL.'};
+ ws.onclose=()=>{state.connected=false;state.ws=null;state.id=null;remotes.forEach(p=>scene.remove(p));remotes.clear();state.remoteData={};status('OFFLINE');$('connect').textContent='Connect'};
 }
-window.addEventListener("keydown",e=>{if(["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"," "].includes(e.key))e.preventDefault();keys[e.key.toLowerCase()]=true;if(e.key.toLowerCase()==="e")useNearest()});
-window.addEventListener("keyup",e=>keys[e.key.toLowerCase()]=false);
-function loop(){let dx=0,dy=0;if(keys.w||keys.arrowup)dy-=2.6;if(keys.s||keys.arrowdown)dy+=2.6;if(keys.a||keys.arrowleft)dx-=2.6;if(keys.d||keys.arrowright)dx+=2.6;if(dx||dy)movePlayer(dx,dy);requestAnimationFrame(loop)}
-function useNearest(){const w=canvas.clientWidth,h=canvas.clientHeight;const p=places.map(p=>({...p,dist:Math.hypot(player.x-p.x*w,player.y-p.y*h)})).sort((a,b)=>a.dist-b.dist)[0];if(p.dist>65){toast("Move closer to a marked location first.");return}if(p.id==="job")navigate("jobs");else if(p.id==="cafe")interact("cafe");else if(p.id==="park")interact("park");else navigate("housing")}
-let pointerDown=false;canvas.addEventListener("pointerdown",e=>{pointerDown=true;canvas.setPointerCapture(e.pointerId);const r=canvas.getBoundingClientRect();player.x=e.clientX-r.left;player.y=e.clientY-r.top;drawCity()});canvas.addEventListener("pointermove",e=>{if(!pointerDown)return;const r=canvas.getBoundingClientRect();player.x=e.clientX-r.left;player.y=e.clientY-r.top;drawCity()});canvas.addEventListener("pointerup",()=>pointerDown=false);canvas.addEventListener("pointercancel",()=>pointerDown=false);
-let minute=24;setInterval(()=>{minute=(minute+1)%60;$("clock").textContent="10:"+(minute<10?"0":"")+minute+" AM"},60000);
-updateUI();resizeCanvas();loop();
+$('connect').addEventListener('click',connect);
+(function defaultUrl(){if(!['localhost','127.0.0.1'].includes(location.hostname))$('server').value=(location.protocol==='https:'?'wss://':'ws://')+location.host})();
+function resize(){const r=canvas.getBoundingClientRect();renderer.setSize(Math.max(1,r.width),Math.max(1,r.height),false);camera.aspect=r.width/Math.max(1,r.height);camera.updateProjectionMatrix()}
+new ResizeObserver(resize).observe(canvas.parentElement);resize();
+function animate(){
+ requestAnimationFrame(animate);
+ const k=state.keys;let forward=(k.w||k.arrowup?1:0)-(k.s||k.arrowdown?1:0),side=(k.d||k.arrowright?1:0)-(k.a||k.arrowleft?1:0);
+ if(forward||side){const speed=.16;const dx=(Math.sin(cameraYaw)*forward+Math.cos(cameraYaw)*side)*speed;const dz=(Math.cos(cameraYaw)*forward-Math.sin(cameraYaw)*side)*speed;state.x=Math.max(-82,Math.min(82,state.x+dx));state.z=Math.max(-82,Math.min(82,state.z+dz));player.rotation.y=Math.atan2(dx,dz);player.position.set(state.x,0,state.z);sendPosition()}
+ const target=new THREE.Vector3(state.x,1.1,state.z);const dist=12;
+ camera.position.set(state.x+Math.sin(cameraYaw)*dist,3.5+cameraPitch*8,state.z+Math.cos(cameraYaw)*dist);camera.lookAt(target);
+ const p=nearest();$('worldStatus').textContent=p.dist<8?'Nearby: '+p.name+' · Press E':'Explore: '+p.name;
+ for(const [id,person] of remotes){const data=state.remoteData[id];if(data){const targetX=data.x*100-50,targetZ=data.y*100-50;person.position.x+=(targetX-person.position.x)*.25;person.position.z+=(targetZ-person.position.z)*.25}}
+ renderer.render(scene,camera);
+}
+animate();
 </script>
 </body>
 </html>
