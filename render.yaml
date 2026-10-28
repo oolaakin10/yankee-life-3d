@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: yankee-life-3d
+    name: yankee-life-live
     runtime: node
     plan: free
     region: virginia
