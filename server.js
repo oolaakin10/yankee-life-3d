@@ -1,5 +1,7 @@
 const WebSocket = require("ws");
 const http = require("http");
+const fs = require("fs");
+const path = require("path");
 const crypto = require("crypto");
 
 const PORT = Number(process.env.PORT || 3001);
@@ -12,8 +14,24 @@ const server = http.createServer((req, res) => {
     res.writeHead(200, { "content-type": "application/json" });
     return res.end(JSON.stringify({ ok: true, service: "yankee-life-multiplayer" }));
   }
-  res.writeHead(200, { "content-type": "text/plain" });
-  res.end("YANKEE LIFE multiplayer server is running. Health: /health\n");
+  if (req.method !== "GET" && req.method !== "HEAD") {
+    res.writeHead(405, { "content-type": "text/plain; charset=utf-8", "allow": "GET, HEAD" });
+    return res.end("Method not allowed");
+  }
+  if (req.url === "/" || req.url === "/index.html") {
+    fs.readFile(path.join(__dirname, "index.html"), (err, html) => {
+      if (err) {
+        res.writeHead(500, { "content-type": "text/plain; charset=utf-8" });
+        return res.end("Game page could not be loaded.");
+      }
+      res.writeHead(200, { "content-type": "text/html; charset=utf-8", "cache-control": "no-cache" });
+      if (req.method === "HEAD") return res.end();
+      res.end(html);
+    });
+    return;
+  }
+  res.writeHead(404, { "content-type": "text/plain; charset=utf-8" });
+  res.end("Not found");
 });
 
 const wss = new WebSocket.Server({ server, maxPayload: 2048 });
