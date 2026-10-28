@@ -1,38 +1,38 @@
-# YANKEE LIFE — Two-player multiplayer MVP
+# YANKEE LIFE — Live Your American Story
 
-This package adds a two-player WebSocket presence server to the free browser prototype.
+A free browser-based 3D life-simulation prototype set in an original, Manhattan-inspired starter district. Explore the city, move with keyboard or touch controls, work for local prototype coins, rest, visit a café, and connect with one friend using a room code.
+
+**Play:** https://yankee-life-live.onrender.com  
+**Source:** https://github.com/oolaakin10/yankee-life-3d
+
+## Current features
+- Three.js 3D city scene and third-person camera.
+- WASD / arrow movement, drag-to-look camera and mobile D-pad.
+- Nearby destinations and contextual interactions.
+- Prototype life loop: work (+35 coins, -12 energy), rest (+30 energy), café snack (-10 coins, +20 energy).
+- Local browser save for prototype coins, energy and shift count.
+- WebSocket presence relay for up to two players per room.
+- Health check at /health; Render deploys from main.
 
 ## Run locally
-1. Install Node.js 18 or newer.
-2. Extract this folder.
-3. In a terminal, run:
-   ```bash
-   npm install
-   npm start
-   ```
-4. Open `index.html` in two browser windows on the same computer.
-5. In both windows, set server URL to `ws://localhost:3001`, use the same room code (for example `TIMESQUARE`), and click **Connect**.
-6. Move with WASD / arrow keys. The other avatar should appear and move in the same city view.
+Requires Node.js 18+.
+```bash
+npm install
+npm start
+```
+Open http://localhost:3001. For two local players, open two browser windows and connect both to ws://localhost:3001 using the same room code. If opening the HTML directly as a file, browser module restrictions may prevent Three.js from loading; use the local server instead.
 
-## Connect from different devices and locations
-A public server is required. `localhost` only points to the current device.
+## Deployment
+Render uses render.yaml, npm install, npm start and health check /health. Set no secrets for the current prototype. GitHub pushes to main trigger deployment automatically.
 
-1. Deploy this folder's Node.js service to a public Node hosting service or VPS.
-2. Set its start command to `npm start`; the service reads the `PORT` environment variable.
-3. Enable HTTPS/TLS at the host or reverse proxy so the WebSocket URL is `wss://...`.
-4. Open the game on each device. Enter the same public `wss://` URL and room code on both, then click **Connect**.
-5. Use a distinct room code if you want a private-feeling room; this prototype does not implement passwords or private room authentication.
+## Architecture and roadmap
+- [Architecture](docs/ARCHITECTURE.md)
+- [Roadmap, budget and first sprint](docs/ROADMAP.md)
+- [Database plan](docs/DATABASE.md)
 
-## What's included
-- Room codes and a two-player room limit
-- WebSocket connection state
-- Live remote avatar position/name updates
-- Disconnect notifications
-- Server-side coordinate clamping and basic movement rate limiting
-- `/health` endpoint for hosting health checks
-- No payment or checkout functionality
+## Honest limitations
+This is an early prototype, not a finished AAA game or production-ready social platform. Multiplayer is an unauthenticated two-player position relay. Player coins and energy are stored in localStorage and are not tamper-proof or synced between devices. There is no persistent account system, authoritative economy, chat, housing ownership, business system, identity verification, residency verification, admin dashboard, payment processing or checkout. Unbuilt cities/states are not playable yet.
 
-## Limitations / security
-This is an early networking prototype, not a secure production multiplayer backend. Anyone who knows a room code may join it. The server relays player positions but does not yet run authoritative movement, accounts, moderation, chat, or cloud persistence. Do not treat client-reported positions, profile details, coins, or progress as trusted. Before public launch, add authentication, private-room controls, abuse protection, secure hosting, observability, and server-authoritative gameplay state.
+The initial release intentionally has **no payments or checkout**. Keep Yankee Coins nonredeemable. Add authentication, server-authoritative actions, database persistence, moderation, privacy/security review and automated acceptance tests before a public beta.
 
-The game is still a 2D canvas city prototype, not a finished 3D world. No payment features are included.
+Use original or properly licensed assets; do not copy protected game assets or maps.
