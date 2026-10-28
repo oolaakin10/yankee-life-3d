@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: yankee-life-3d
+    runtime: node
+    plan: free
+    region: virginia
+    branch: main
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeploy: true
