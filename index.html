@@ -91,6 +91,14 @@ const states=["Alabama","Alaska","Arizona","Arkansas","California","Colorado","C
 const defaults={name:"YankeePlayer",state:"New York",avatar:"🧑🏽",coins:250,energy:82,xp:12,level:1,home:false,business:false,activities:[]};
 let data={...defaults,...(JSON.parse(localStorage.getItem("yankeeLifeSave")||"{}"))};
 const $=id=>document.getElementById(id);
+(function setDefaultMultiplayerUrl(){
+ const input=$("serverUrl");
+ if(!input) return;
+ const local=["localhost","127.0.0.1"].includes(location.hostname);
+ if(!local && (input.value==="" || input.value==="ws://localhost:3001")){
+   input.value=(location.protocol==="https:"?"wss://":"ws://")+location.host;
+ }
+})();
 function save(){localStorage.setItem("yankeeLifeSave",JSON.stringify(data));updateUI()}
 function updateUI(){
  $("coinCount").textContent=data.coins;$("profileName").textContent=data.name;$("profileMeta").textContent=data.state+" · Level "+data.level;$("avatarInitial").textContent=data.avatar||data.name.charAt(0).toUpperCase();
