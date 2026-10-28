@@ -68,7 +68,7 @@ const destinations=[
 ];
 const labels=[];
 function makeLabel(text,color){
- const c=document.createElement('canvas');c.width=512;c.height=128;const g=c.getContext('2d);
+ const c=document.createElement('canvas');c.width=512;c.height=128;const g=c.getContext('2d');
  g.fillStyle='rgba(5,15,25,.82)';g.fillRect(4,12,504,104);g.strokeStyle='#'+color.toString(16).padStart(6,'0');g.lineWidth=6;g.strokeRect(4,12,504,104);
  g.fillStyle='#ffffff';g.font='bold 38px system-ui';g.textAlign='center';g.fillText(text,256,78);
  const tex=new THREE.CanvasTexture(c);tex.colorSpace=THREE.SRGBColorSpace;
